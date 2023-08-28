@@ -1,0 +1,115 @@
+.page-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .search-container {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    overflow-y: auto; /* Add vertical scrollbar when content exceeds height */
+  max-height: 400px; /* Set a maximum height for the search results */
+  }
+  
+  .receipt-container {
+    flex: 1;
+    padding: 20px;
+    border-left: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  
+  .product-item {
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth background and color transitions */
+  }
+  
+  .product-item:hover {
+    background-color: #f0f0f0;
+    color: #007bff; /* Blue color on hover */
+  }
+  
+  .receipt-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .receipt-item input[type="number"] {
+    width: 40px;
+    margin-left: 10px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .receipt-item input[type="number"]:focus {
+    border-color: #007bff;
+  }
+  
+  .remove-item-button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #cc0000; /* Red color for the cross icon */
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .column-headers {
+    display: grid; /* Use grid layout for the headers */
+    grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr; /* Adjusted column widths */
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    border-radius: 5px;
+    align-items: center; /* Center align the headers vertically */
+  }
+  
+  .column-header {
+    text-align: center;
+  }
+
+  .searched-products {
+    margin-top: 10px;
+  }
+  
+  .product-item:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+  }
+  
+  .product-name,
+  .product-price,
+  .product-barcode,
+  .product-quantity,
+  .product-id {
+    flex: 1;
+    text-align: center;
+  }
+
+.product-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr 1fr 1fr; /* Adjusted column widths */
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+.create-receipt-button{
+    margin-top: 10px;
+  }
+
+.ein-input-container{
+    margin-top: 10px;
+}

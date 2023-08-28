@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +33,32 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token');
     this.isLoggedInSubject.next(false);
+  }
+
+  getUserRole(): string {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const jwtObject = jwt_decode(token) as any;
+      return jwtObject['role'];
+    }
+    return '';
+  }
+
+  getUserId(): string {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const jwtObject = jwt_decode(token) as any;
+      return jwtObject['id'];
+    }
+    return '';
+  }
+
+  getToken(): string {
+    const token = localStorage.getItem('token');
+    if (token) {
+      return token;
+    }
+    return '';
   }
 
   checkAuthentication(): void {

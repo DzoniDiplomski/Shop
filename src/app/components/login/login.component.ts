@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
   password = '';
   isLoggedIn = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.authService.checkAuthentication();
@@ -21,7 +22,15 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.authService.login(this.username, this.password).subscribe();
+    this.authService.login(this.username, this.password).subscribe(() => {
+      switch (this.authService.getUserRole()) {
+        case 'KASIR':
+          this.router.navigate(['/cashierHome']);
+          break;
+        default:
+          console.log('Not logged in');
+      }
+    });
   }
 
   logout(): void {

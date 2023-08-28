@@ -9,9 +9,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { CashierHomeComponent } from './components/cashier-home/cashier-home.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, CashierHomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
