@@ -113,3 +113,36 @@
 .ein-input-container{
     margin-top: 10px;
 }
+
+.bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f0f0f0; /* Customize the background color */
+  }
+
+
+  .icon {
+    display: inline-block;
+    margin-right: 4px;
+    transform-origin: center;
+  }
+  
+  @keyframes moveIconAnimation {
+    0% {
+      transform: translateX(0) translateY(0);
+    }
+    100% {
+      transform: translateX(100px) translateY(-30px);
+      opacity: 0;
+    }
+  }
+  
+  .fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

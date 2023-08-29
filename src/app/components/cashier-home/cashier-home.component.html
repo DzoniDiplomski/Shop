@@ -1,15 +1,15 @@
 <div class="page-container">
     <div class="search-container">
         <mat-form-field>
-            <input matInput placeholder="Search products..." [(ngModel)]="query" (keyup)="searchProducts()">
+            <input matInput placeholder="Pretrazi artikle..." [(ngModel)]="query" (keyup)="searchProducts()">
           </mat-form-field>
           <div class="searched-products">
           <div class="column-headers">
-            <span class="column-header">Product Name</span>
-            <span class="column-header">Price</span>
-            <span class="column-header">Barcode</span>
-            <span class="column-header">Quantity</span>
-            <span class="column-header">Id</span>
+            <span class="column-header">Naziv</span>
+            <span class="column-header">Cena</span>
+            <span class="column-header">Barkod</span>
+            <span class="column-header">Količina</span>
+            <span class="column-header">Šifra</span>
           </div>
       <div *ngFor="let product of searchedProducts" class="product-item" (click)="addProductToReceipt(product)">
         <span class="product-name">{{ product.naz }}</span>
@@ -23,21 +23,32 @@
   
     <div class="receipt-container">
       <!-- Receipt content -->
-      <h2>Receipt</h2>
+      <h2>Račun</h2>
       <div *ngFor="let item of receiptItems; let i = index" class="receipt-item">
         <span>{{ item.naz }} - {{ item.cena }}</span>
         <input type="number" [(ngModel)]="item.kolicina" (change)="updateReceiptTotal()">
         <button class="remove-item-button" (click)="removeItemFromReceipt(i)">✕</button>
       </div>
       <div class="receipt-total">
-        Total: {{ receiptTotal }}
+        Suma: {{ receiptTotal }}
       </div>
       <div class="ein-input-container">
-        <label for="ein-input">EIN:</label>
+        <label for="ein-input">PIB:</label>
         <input type="number" id="ein-input" [(ngModel)]="pib" name="ein-input">
       </div>
-      <button class="create-receipt-button" (click)="createReceipt()">Create Receipt</button>
+      <button mat-button class="create-receipt-button" (click)="createReceipt()"> <span class="icon" [@moveIcon]="iconState"  (@moveIcon.done)="resetIconState()" *ngIf="!isAnimationInProgress">🧾</span> Fiskalizuj račun</button>
     </div>
+
+
+
+    <mat-toolbar class="bottom-navbar">
+        <button mat-button routerLink="/logout">Izloguj se</button>
+        <button mat-button routerLink="/allReceipts">
+            Svi računi
+          </button>
+        <button mat-button routerLink="/allInvoices">Svi gotovinski računi</button>
+        <!-- Add more buttons for other navigation options -->
+      </mat-toolbar>
   </div>
 
 

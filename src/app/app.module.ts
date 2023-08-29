@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { CashierHomeComponent } from './components/cashier-home/cashier-home.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, CashierHomeComponent],
@@ -22,6 +23,7 @@ import { CashierHomeComponent } from './components/cashier-home/cashier-home.com
     MatButtonModule,
     FormsModule,
     HttpClientModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

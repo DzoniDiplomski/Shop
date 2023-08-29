@@ -3,11 +3,44 @@ import { ProductService } from 'src/app/service/product/product.service';
 import { ReceiptService } from 'src/app/service/receipt/receipt.service';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth/auth.service';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-cashier-home',
   templateUrl: './cashier-home.component.html',
   styleUrls: ['./cashier-home.component.css'],
+  animations: [
+    trigger('moveIcon', [
+      state(
+        'moved',
+        style({
+          transform: 'translateX(100px) translateY(-30px)',
+          opacity: 0,
+        })
+      ),
+      transition('* => moved', [
+        animate(
+          '1s',
+          style({
+            transform: 'translateX(-1100px) translateY(1000px)',
+            opacity: 0,
+          })
+        ),
+        animate(
+          '0.5s',
+          style({
+            opacity: 1,
+          })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class CashierHomeComponent implements OnInit {
   searchedProducts: any[] = [];
@@ -15,6 +48,8 @@ export class CashierHomeComponent implements OnInit {
   receiptTotal: number = 0;
   query: string = '';
   pib: number = 0;
+  iconState = '';
+  isAnimationInProgress = false;
 
   constructor(
     private productService: ProductService,
@@ -33,6 +68,14 @@ export class CashierHomeComponent implements OnInit {
       this.searchedProducts = products;
       console.log(products);
     });
+  }
+
+  resetIconState() {
+    // Reset the animation and iconState
+    this.isAnimationInProgress = false;
+    setTimeout(() => {
+      this.iconState = ''; // Reset icon state after a short delay
+    }, 1000); // Adjust the delay time if needed
   }
 
   addProductToReceipt(product: any): void {
@@ -90,6 +133,8 @@ export class CashierHomeComponent implements OnInit {
         console.error('Error creating receipt:', error);
       }
     );
+    this.iconState = 'moved';
+    this.isAnimationInProgress = true; // Set animation in progress
   }
 
   clearPageItems(): void {
