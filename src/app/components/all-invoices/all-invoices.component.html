@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Svi gotovinski računi</h1>
+    <table class="receipts-table">
+      <thead>
+        <tr>
+          <th>Broj gotovinskog računa</th>
+          <th>Vreme fiskalizacije</th>
+          <th>Ime kasira</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let receipt of receipts" (click)="viewReceipt(receipt.id, receipt.createdAt)">
+          <td>{{ receipt.id }}</td>
+          <td>{{ receipt.createdAt}}</td>
+          <td>{{ receipt.nazivProdavca }}  {{ receipt.prezimeProdavca }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+        <button (click)="prevPage()">Previous</button>
+        <span>Page {{ currentPage }}</span>
+        <button (click)="nextPage()">Next</button>
+      </div>
+  </div>
+  
