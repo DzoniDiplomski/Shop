@@ -61,3 +61,29 @@
   
   /* Add more styles as needed */
   
+  .receipts-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .receipts-table th,
+  .receipts-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .receipts-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+  
+  .receipts-table tbody tr:hover {
+    cursor: pointer; /* Change cursor to pointer on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+  }
+  
+  /* ... Other styles ... */
+  

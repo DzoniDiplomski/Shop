@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CashierHomeComponent } from './components/cashier-home/cashier-home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AllReceiptsComponent } from './components/all-receipts/all-receipts.component';
+import { ReceiptDetailComponent } from './components/receipt-detail/receipt-detail.component';
+import { AllInvoicesComponent } from './components/all-invoices/all-invoices.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { AllReceiptsComponent } from './components/all-receipts/all-receipts.com
     LoginComponent,
     CashierHomeComponent,
     AllReceiptsComponent,
+    ReceiptDetailComponent,
+    AllInvoicesComponent,
   ],
   imports: [
     BrowserModule,

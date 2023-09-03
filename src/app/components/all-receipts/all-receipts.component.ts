@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ReceiptService } from 'src/app/service/receipt/receipt.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class AllReceiptsComponent implements OnInit {
   itemsPerPage = 10;
   receipts: any[] = [];
 
-  constructor(private receiptService: ReceiptService) {}
+  constructor(private receiptService: ReceiptService, private router: Router) {}
 
   ngOnInit(): void {
     this.receiptService
@@ -28,6 +29,7 @@ export class AllReceiptsComponent implements OnInit {
           .loadReceipts(false, `${this.currentPage}`, `${this.itemsPerPage}`)
           .subscribe((receipts) => {
             this.receipts = receipts;
+            console.log(this.receipts);
           });
       });
   }
@@ -35,6 +37,9 @@ export class AllReceiptsComponent implements OnInit {
   prevPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
+      this.receiptService
+        .loadReceipts(false, `${this.currentPage}`, `${this.itemsPerPage}`)
+        .subscribe((receipts) => (this.receipts = receipts));
     }
   }
 
@@ -45,5 +50,9 @@ export class AllReceiptsComponent implements OnInit {
         .loadReceipts(false, `${this.currentPage}`, `${this.itemsPerPage}`)
         .subscribe((receipts) => (this.receipts = receipts));
     }
+  }
+
+  viewReceipt(receiptId: number, createdAt: string) {
+    this.router.navigate(['/receipt', receiptId, createdAt]);
   }
 }

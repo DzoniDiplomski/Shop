@@ -9,14 +9,16 @@
       <thead>
         <tr>
           <th>Broj računa</th>
-          <th>Datum i vreme fiskalizacije</th>
+          <th>Vreme fiskalizacije</th>
+          <th>Ime kasira</th>
           <!-- Add more columns as needed -->
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let receipt of receipts">
+        <tr *ngFor="let receipt of receipts" (click)="viewReceipt(receipt.id, receipt.createdAt)">
           <td>{{ receipt.id }}</td>
           <td>{{ receipt.createdAt}}</td>
+          <td>{{ receipt.nazivProdavca }}  {{ receipt.prezimeProdavca }}</td>
           <!-- Add more columns as needed -->
         </tr>
       </tbody>

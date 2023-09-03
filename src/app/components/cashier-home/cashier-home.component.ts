@@ -10,6 +10,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cashier-home',
@@ -54,7 +55,8 @@ export class CashierHomeComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private receiptService: ReceiptService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   searchProducts(): void {
@@ -143,6 +145,11 @@ export class CashierHomeComponent implements OnInit {
     this.searchedProducts = [];
     this.query = '';
     this.pib = 0;
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/']);
   }
 
   ngOnInit(): void {}

@@ -31,7 +31,7 @@ export class ReceiptService {
   calculateTotalPages(getInvoices: boolean, itemsPerPage: string) {
     var apiPath = `/calculatePages?items=${itemsPerPage}`;
     if (getInvoices) {
-      apiPath = `/calculateInvoicePages=?items=${itemsPerPage}`;
+      apiPath = `/calculateInvoicePages?items=${itemsPerPage}`;
     }
     return this.http.get<any>(`${this.baseUrl}${apiPath}`, this.requestOptions);
   }
@@ -44,6 +44,14 @@ export class ReceiptService {
     var apiPath = `/getAllReceipts?page=${currentPage}&limit=${itemsPerPage}`;
     if (getInvoices) {
       apiPath = '/getAllInvoices';
+    }
+    return this.http.get<any>(`${this.baseUrl}${apiPath}`, this.requestOptions);
+  }
+
+  loadReceiptItems(receiptId: string, getItemsForInvocie: boolean) {
+    var apiPath = `/getReceiptItems?id=${receiptId}`;
+    if (getItemsForInvocie) {
+      apiPath = `/getInvoiceItems?id=${receiptId}`;
     }
     return this.http.get<any>(`${this.baseUrl}${apiPath}`, this.requestOptions);
   }

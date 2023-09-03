@@ -5,6 +5,8 @@ import { CashierHomeComponent } from './components/cashier-home/cashier-home.com
 import { AuthGuard } from './guard/auth/auth.guard';
 import { CashierGuard } from './guard/cashier/cashier.guard';
 import { AllReceiptsComponent } from './components/all-receipts/all-receipts.component';
+import { ReceiptDetailComponent } from './components/receipt-detail/receipt-detail.component';
+import { AllInvoicesComponent } from './components/all-invoices/all-invoices.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
@@ -15,6 +17,8 @@ const routes: Routes = [
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'allReceipts', component: AllReceiptsComponent },
+  { path: 'receipt/:id/:createdAt', component: ReceiptDetailComponent },
+  { path: 'allInvoices', component: AllInvoicesComponent },
 ];
 
 @NgModule({
