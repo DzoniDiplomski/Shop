@@ -27,4 +27,24 @@ export class ReceiptService {
       })
     );
   }
+
+  calculateTotalPages(getInvoices: boolean, itemsPerPage: string) {
+    var apiPath = `/calculatePages?items=${itemsPerPage}`;
+    if (getInvoices) {
+      apiPath = `/calculateInvoicePages=?items=${itemsPerPage}`;
+    }
+    return this.http.get<any>(`${this.baseUrl}${apiPath}`, this.requestOptions);
+  }
+
+  loadReceipts(
+    getInvoices: boolean,
+    currentPage: string,
+    itemsPerPage: string
+  ) {
+    var apiPath = `/getAllReceipts?page=${currentPage}&limit=${itemsPerPage}`;
+    if (getInvoices) {
+      apiPath = '/getAllInvoices';
+    }
+    return this.http.get<any>(`${this.baseUrl}${apiPath}`, this.requestOptions);
+  }
 }

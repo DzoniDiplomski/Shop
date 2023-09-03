@@ -11,9 +11,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { CashierHomeComponent } from './components/cashier-home/cashier-home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { AllReceiptsComponent } from './components/all-receipts/all-receipts.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, CashierHomeComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    CashierHomeComponent,
+    AllReceiptsComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { CashierHomeComponent } from './components/cashier-home/cashier-home.component';
 import { AuthGuard } from './guard/auth/auth.guard';
-import { AuthService } from './service/auth/auth.service';
 import { CashierGuard } from './guard/cashier/cashier.guard';
+import { AllReceiptsComponent } from './components/all-receipts/all-receipts.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
@@ -14,6 +14,7 @@ const routes: Routes = [
     canActivate: [CashierGuard],
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'allReceipts', component: AllReceiptsComponent },
 ];
 
 @NgModule({
