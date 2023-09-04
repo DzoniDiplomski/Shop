@@ -53,6 +53,6 @@ export class AllInvoicesComponent implements OnInit {
   }
 
   viewReceipt(receiptId: number, createdAt: string) {
-    this.router.navigate(['/receipt', receiptId, createdAt]);
+    this.router.navigate(['/invoice', receiptId, createdAt]);
   }
 }

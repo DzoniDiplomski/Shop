@@ -14,6 +14,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AllReceiptsComponent } from './components/all-receipts/all-receipts.component';
 import { ReceiptDetailComponent } from './components/receipt-detail/receipt-detail.component';
 import { AllInvoicesComponent } from './components/all-invoices/all-invoices.component';
+import { InvoiceDetailsComponent } from './components/invoice-details/invoice-details.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AllInvoicesComponent } from './components/all-invoices/all-invoices.com
     AllReceiptsComponent,
     ReceiptDetailComponent,
     AllInvoicesComponent,
+    InvoiceDetailsComponent,
   ],
   imports: [
     BrowserModule,

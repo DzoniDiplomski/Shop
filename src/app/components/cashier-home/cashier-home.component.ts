@@ -11,6 +11,7 @@ import {
   transition,
 } from '@angular/animations';
 import { Router } from '@angular/router';
+import { DailyMarketService } from 'src/app/service/daily-market/daily-market.service';
 
 @Component({
   selector: 'app-cashier-home',
@@ -51,12 +52,14 @@ export class CashierHomeComponent implements OnInit {
   pib: number = 0;
   iconState = '';
   isAnimationInProgress = false;
+  dailyMarket: number = 0;
 
   constructor(
     private productService: ProductService,
     private receiptService: ReceiptService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private dailyMarketService: DailyMarketService
   ) {}
 
   searchProducts(): void {
@@ -130,6 +133,7 @@ export class CashierHomeComponent implements OnInit {
       () => {
         console.log('Receipt created successfully');
         this.clearPageItems();
+        this.fetchDailyMarket();
       },
       (error) => {
         console.error('Error creating receipt:', error);
@@ -152,5 +156,13 @@ export class CashierHomeComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  ngOnInit(): void {}
+  fetchDailyMarket(): void {
+    this.dailyMarketService
+      .fetchDailyMarket()
+      .subscribe((dailyMarket) => (this.dailyMarket = dailyMarket.sum));
+  }
+
+  ngOnInit(): void {
+    this.fetchDailyMarket();
+  }
 }

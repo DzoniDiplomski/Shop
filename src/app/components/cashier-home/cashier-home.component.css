@@ -146,3 +146,14 @@
       opacity: 1;
     }
   }
+
+  /* Add styling for the spacer */
+.spacer {
+    flex-grow: 1; /* This will push the Daily Market counter to the right */
+  }
+  
+  /* Add styling for the Daily Market counter */
+  .daily-market-counter {
+    /* Add your styling for the counter here */
+  }
+  
