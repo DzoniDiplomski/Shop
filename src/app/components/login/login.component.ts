@@ -27,6 +27,9 @@ export class LoginComponent implements OnInit {
         case 'KASIR':
           this.router.navigate(['/cashierHome']);
           break;
+        case 'MENADZER':
+          this.router.navigate(['/managerHome']);
+          break;
         default:
           console.log('Not logged in');
       }

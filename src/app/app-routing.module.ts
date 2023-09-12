@@ -8,6 +8,10 @@ import { AllReceiptsComponent } from './components/all-receipts/all-receipts.com
 import { ReceiptDetailComponent } from './components/receipt-detail/receipt-detail.component';
 import { AllInvoicesComponent } from './components/all-invoices/all-invoices.component';
 import { InvoiceDetailsComponent } from './components/invoice-details/invoice-details.component';
+import { ManagerHomeComponent } from './components/manager-home/manager-home.component';
+import { ManagerGuard } from './guard/manager/manager.guard';
+import { CreateRequisitionComponent } from './components/create-requisition/create-requisition.component';
+import { UpdatePriceComponent } from './components/update-price/update-price.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
@@ -36,6 +40,21 @@ const routes: Routes = [
     path: 'invoice/:id/:createdAt',
     component: InvoiceDetailsComponent,
     canActivate: [CashierGuard],
+  },
+  {
+    path: 'managerHome',
+    component: ManagerHomeComponent,
+    canActivate: [ManagerGuard],
+  },
+  {
+    path: 'createRequisition',
+    component: CreateRequisitionComponent,
+    canActivate: [ManagerGuard],
+  },
+  {
+    path: 'updatePrice',
+    component: UpdatePriceComponent,
+    canActivate: [ManagerGuard],
   },
 ];
 

@@ -15,6 +15,13 @@ import { AllReceiptsComponent } from './components/all-receipts/all-receipts.com
 import { ReceiptDetailComponent } from './components/receipt-detail/receipt-detail.component';
 import { AllInvoicesComponent } from './components/all-invoices/all-invoices.component';
 import { InvoiceDetailsComponent } from './components/invoice-details/invoice-details.component';
+import { ManagerHomeComponent } from './components/manager-home/manager-home.component';
+import { MatListModule } from '@angular/material/list';
+import { CreateRequisitionComponent } from './components/create-requisition/create-requisition.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UpdatePriceComponent } from './components/update-price/update-price.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -25,6 +32,9 @@ import { InvoiceDetailsComponent } from './components/invoice-details/invoice-de
     ReceiptDetailComponent,
     AllInvoicesComponent,
     InvoiceDetailsComponent,
+    ManagerHomeComponent,
+    CreateRequisitionComponent,
+    UpdatePriceComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +46,10 @@ import { InvoiceDetailsComponent } from './components/invoice-details/invoice-de
     FormsModule,
     HttpClientModule,
     MatToolbarModule,
+    MatListModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
