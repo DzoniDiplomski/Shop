@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UpdatePriceComponent } from './components/update-price/update-price.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { PriceStatsComponent } from './components/price-stats/price-stats.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     ManagerHomeComponent,
     CreateRequisitionComponent,
     UpdatePriceComponent,
+    PriceStatsComponent,
   ],
   imports: [
     BrowserModule,

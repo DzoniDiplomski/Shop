@@ -12,6 +12,7 @@ import { ManagerHomeComponent } from './components/manager-home/manager-home.com
 import { ManagerGuard } from './guard/manager/manager.guard';
 import { CreateRequisitionComponent } from './components/create-requisition/create-requisition.component';
 import { UpdatePriceComponent } from './components/update-price/update-price.component';
+import { PriceStatsComponent } from './components/price-stats/price-stats.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
@@ -54,6 +55,11 @@ const routes: Routes = [
   {
     path: 'updatePrice',
     component: UpdatePriceComponent,
+    canActivate: [ManagerGuard],
+  },
+  {
+    path: 'priceStats',
+    component: PriceStatsComponent,
     canActivate: [ManagerGuard],
   },
 ];

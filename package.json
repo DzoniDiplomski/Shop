@@ -21,7 +21,12 @@
     "@angular/platform-browser": "~11.2.14",
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",
+    "@swimlane/ngx-charts": "^20.4.1",
+    "chart.js": "^4.4.0",
     "jwt-decode": "^3.1.2",
+    "ng2-charts": "^5.0.3",
+    "ngx-chartjs": "^0.0.1",
+    "ngx-charts": "^3.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

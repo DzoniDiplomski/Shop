@@ -1,0 +1,24 @@
+<div class="price-stats">
+    <h2>Stastika cena   </h2>
+    <div class="search-form">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Pretraži proizvode">
+      <button (click)="searchProducts()">Pretraži</button>
+    </div>
+    <div class="search-results">
+      <ul>
+        <li *ngFor="let product of searchResults" (click)="selectProduct(product)">
+          {{ product.naz }} (Cena: {{ product.cena }})
+        </li>
+      </ul>
+    </div>
+    <div class="price-stats-display" *ngIf="selectedProduct">
+      <h3>Statistika za {{ selectedProduct.naz }}</h3>
+      <ul>
+        <li *ngFor="let stat of priceStats">
+          Cena: {{ stat.price }} -
+          Početak važenja: {{ stat.startDate | date:'shortDate' }} -
+          Kraj važenja: {{ stat.endDate | date:'shortDate' }}
+        </li>
+      </ul>
+    </div>
+  </div>

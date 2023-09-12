@@ -35,4 +35,16 @@ export class ProductService {
       requestOptions
     );
   }
+
+  retreivePriceStats(productId: number) {
+    const requestOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + this.authService.getToken(),
+      }),
+    };
+    return this.http.get<any>(
+      this.baseUrlManager + `/priceStats?id=${productId}`,
+      requestOptions
+    );
+  }
 }
