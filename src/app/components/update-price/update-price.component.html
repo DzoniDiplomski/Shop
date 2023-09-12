@@ -1,0 +1,32 @@
+<div class="update-price-form">
+    <h2>Nivelacija cene proizvoda</h2>
+    <div class="search-form">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Pronađi proizvod">
+      <button (click)="searchProducts()">Pretraži
+      </button>
+    </div>
+    <div class="search-results">
+      <ul>
+        <li *ngFor="let product of searchResults" (click)="selectProduct(product)">
+          {{ product.naz }} (Cena: {{ product.cena }})
+        </li>
+      </ul>
+    </div>
+    <div class="update-form" *ngIf="selectedProduct">
+      <h3>Ažuriraj cenu za {{ selectedProduct.naz }}</h3>
+      <input type="number" [(ngModel)]="updatedPrice" placeholder="New Price">
+      <mat-form-field class="date-picker">
+        <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date" [(ngModel)]="updatedStartDate">
+        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field class="date-picker">
+        <input matInput [matDatepicker]="endDatePicker" placeholder="End Date" [(ngModel)]="updatedEndDate">
+        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+      </mat-form-field>
+      <button (click)="updatePrice()">Ažuriraj cenu</button>
+    </div>
+  </div>
+  

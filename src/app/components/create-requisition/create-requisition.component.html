@@ -1,0 +1,23 @@
+<div class="requisition-form">
+    <h2>Kreiraj trebovanje</h2>
+    <form (submit)="createRequisition()">
+      <div class="form-group">
+        <label for="productName">Naziv proizvoda:</label>
+        <input type="text" id="productName" [(ngModel)]="productName" name="productName" required>
+      </div>
+      <div class="form-group">
+        <label for="productQuantity">Količina:</label>
+        <input type="number" id="productQuantity" [(ngModel)]="productQuantity" name="productQuantity" required>
+      </div>
+      <button type="button" (click)="addProduct()">Dodaj proizvod</button>
+      <button type="submit">Kreiraj</button>
+    </form>
+  
+    <div class="products-list">
+      <h3>Lista proizvoda:</h3>
+      <ul>
+        <li *ngFor="let product of products">{{ product.naz }} (Količina: {{ product.kolicina }})</li>
+      </ul>
+    </div>
+  </div>
+  
