@@ -26,4 +26,21 @@ export class RequisitionService {
       this.requestOptions
     );
   }
+
+  calculateTotalPages(itemsPerPage: string) {
+    var apiPath = `/calculateRequisitionPages?items=${itemsPerPage}`;
+    return this.http.get<any>(`${this.baseUrl}${apiPath}`, this.requestOptions);
+  }
+
+  loadRequisitions(currentPage: string, itemsPerPage: string) {
+    return this.http.get<any>(
+      `${this.baseUrl}/getRequisitions?page=${currentPage}&limit=${itemsPerPage}`,
+      this.requestOptions
+    );
+  }
+
+  loadRequisitionItems(requisitionId: string) {
+    var apiPath = `/getRequisitionItems?id=${requisitionId}`;
+    return this.http.get<any>(`${this.baseUrl}${apiPath}`, this.requestOptions);
+  }
 }

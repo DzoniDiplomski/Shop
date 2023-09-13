@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>Pregled trebovanja</h1>
+  
+    <div>
+      <p><strong>Broj trebovanja:</strong> {{ requisitionId }}</p>
+      <p><strong>Vreme kreiranja:</strong> {{ createdAt }}</p>
+    </div>
+  
+    <h2>Artikli</h2>
+    <table class="items-table">
+      <thead>
+        <tr>
+          <th>Naziv</th>
+          <th>Količina</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td>{{ item.name }}</td>
+          <td>{{ item.quantity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

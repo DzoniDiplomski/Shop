@@ -23,6 +23,11 @@ import { UpdatePriceComponent } from './components/update-price/update-price.com
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { PriceStatsComponent } from './components/price-stats/price-stats.component';
+import { AllRequisitionsComponent } from './components/all-requisitions/all-requisitions.component';
+import { RequisitionDetailComponent } from './components/requisition-detail/requisition-detail.component';
+import { AllAcquisitionsComponent } from './components/all-acquisitions/all-acquisitions.component';
+import { AcquisitionDetailsComponent } from './components/acquisition-details/acquisition-details.component';
+import { CreateCalculationComponent } from './components/create-calculation/create-calculation.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,11 @@ import { PriceStatsComponent } from './components/price-stats/price-stats.compon
     CreateRequisitionComponent,
     UpdatePriceComponent,
     PriceStatsComponent,
+    AllRequisitionsComponent,
+    RequisitionDetailComponent,
+    AllAcquisitionsComponent,
+    AcquisitionDetailsComponent,
+    CreateCalculationComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Sva trebovanja</h1>
+    <table class="receipts-table">
+      <thead>
+        <tr>
+          <th>Broj trebovanja</th>
+          <th>Vreme kreiranja</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let requisition of requisitions" (click)="viewRequisition(requisition.id, requisition.createdAt)">
+          <td>{{ requisition.id }}</td>
+          <td>{{ requisition.createdAt}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination">
+        <button (click)="prevPage()">Previous</button>
+        <span>Page {{ currentPage }}</span>
+        <button (click)="nextPage()">Next</button>
+      </div>
+  </div>
+  

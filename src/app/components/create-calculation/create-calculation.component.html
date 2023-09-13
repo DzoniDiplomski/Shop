@@ -1,0 +1,24 @@
+<div>
+    <h2>Create Calculation</h2>
+    <form (ngSubmit)="createCalculation()">
+      <div *ngFor="let item of calculation.items; let i = index">
+        <!-- Input fields for CalculationProductDTO properties -->
+        <input [(ngModel)]="item.sif" placeholder="Product Code">
+        <input [(ngModel)]="item.neto" placeholder="Neto Price">
+        <input [(ngModel)]="item.margin" placeholder="Margin">
+        <input [(ngModel)]="item.quantity" placeholder="Quantity">
+        <input [(ngModel)]="item.pdv" placeholder="PDV">
+        <button type="button" (click)="addProduct()">Add Product</button>
+      </div>
+      <button type="submit">Create Calculation</button>
+    </form>
+
+    <div class="added-items">
+        <h3>Added Items:</h3>
+        <ul>
+          <li *ngFor="let item of calculation.items">
+            Product Code: {{ item.sif }}, Neto Price: {{ item.neto }}, Margin: {{ item.margin }}, Quantity: {{ item.quantity }}, PDV: {{ item.pdv }}
+          </li>
+        </ul>
+      </div>
+  </div>  

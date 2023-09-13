@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Sve fakture</h1>
+    <table class="receipts-table">
+      <thead>
+        <tr>
+          <th>Faktura</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let acquisition of acquisitions" (click)="viewAcquisition(acquisition)">
+          <td>{{ acquisition }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination">
+        <button (click)="prevPage()">Previous</button>
+        <span>Page {{ currentPage }}</span>
+        <button (click)="nextPage()">Next</button>
+      </div>
+  </div>
+  

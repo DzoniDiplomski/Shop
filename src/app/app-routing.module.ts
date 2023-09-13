@@ -13,6 +13,10 @@ import { ManagerGuard } from './guard/manager/manager.guard';
 import { CreateRequisitionComponent } from './components/create-requisition/create-requisition.component';
 import { UpdatePriceComponent } from './components/update-price/update-price.component';
 import { PriceStatsComponent } from './components/price-stats/price-stats.component';
+import { AllRequisitionsComponent } from './components/all-requisitions/all-requisitions.component';
+import { RequisitionDetailComponent } from './components/requisition-detail/requisition-detail.component';
+import { AllAcquisitionsComponent } from './components/all-acquisitions/all-acquisitions.component';
+import { AcquisitionDetailsComponent } from './components/acquisition-details/acquisition-details.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
@@ -60,6 +64,26 @@ const routes: Routes = [
   {
     path: 'priceStats',
     component: PriceStatsComponent,
+    canActivate: [ManagerGuard],
+  },
+  {
+    path: 'allRequisitions',
+    component: AllRequisitionsComponent,
+    canActivate: [ManagerGuard],
+  },
+  {
+    path: 'requisition/:id/:createdAt',
+    component: RequisitionDetailComponent,
+    canActivate: [ManagerGuard],
+  },
+  {
+    path: 'allAcquisitions',
+    component: AllAcquisitionsComponent,
+    canActivate: [ManagerGuard],
+  },
+  {
+    path: 'acquisition/:acquisitionName',
+    component: AcquisitionDetailsComponent,
     canActivate: [ManagerGuard],
   },
 ];

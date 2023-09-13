@@ -1,0 +1,48 @@
+/* Add your component-specific CSS styles here */
+
+.container {
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .calculation-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .calculation-item input {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+  }
+  
+  .added-items {
+    margin-top: 20px;
+  }
+  
+  .added-items h3 {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .added-items ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .added-items li {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
