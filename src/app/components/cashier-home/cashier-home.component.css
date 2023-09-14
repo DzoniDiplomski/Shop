@@ -118,6 +118,9 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    display: flex;
+    gap: 16px;
+    left: 0;
     background-color: #f0f0f0; /* Customize the background color */
   }
 
@@ -130,10 +133,10 @@
   
   @keyframes moveIconAnimation {
     0% {
-      transform: translateX(0) translateY(0);
+      transform: translateX(0) translateY(0) scale(1);
     }
     100% {
-      transform: translateX(100px) translateY(-30px);
+      transform: translateX(100px) translateY(-30px) scale(5);
       opacity: 0;
     }
   }

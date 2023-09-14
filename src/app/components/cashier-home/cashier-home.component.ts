@@ -28,10 +28,10 @@ import { DailyMarketService } from 'src/app/service/daily-market/daily-market.se
       ),
       transition('* => moved', [
         animate(
-          '1s',
+          '0.5s',
           style({
-            transform: 'translateX(-1100px) translateY(1000px)',
-            opacity: 0,
+            transform: 'translateX(-1100px) translateY(1000px) scale(5)',
+            opacity: 1,
           })
         ),
         animate(

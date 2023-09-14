@@ -1,48 +1,94 @@
-/* Add your component-specific CSS styles here */
-
 .container {
+    text-align: center; /* Center-align the content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+
   }
   
   .calculation-item {
-    border: 1px solid #ddd;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 10px 0;
+  }
+  
+  .calculation-item input,
+  .calculation-item select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .calculation-item input {
     width: 100%;
-    padding: 5px;
-    margin: 5px 0;
+    display: block;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
-  .added-items {
-    margin-top: 20px;
+  button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
   }
   
-  .added-items h3 {
-    font-size: 20px;
-    color: #333;
+  button:hover {
+    background-color: #0056b3;
   }
   
-  .added-items ul {
+
+  .search-results ul {
     list-style-type: none;
     padding: 0;
   }
   
-  .added-items li {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+  .search-results li {
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
   }
   
+  /* Define the hover effect */
+  .search-results li:hover {
+    background-color: #f0f0f0; /* Change the background color on hover */
+  }
+  
+
+  .search-form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-form input {
+    flex: 1; /* Take up remaining space */
+    padding: 10px;
+    margin-right: 10px; /* Add some spacing between input and button */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3; /* Change the background color on hover */
+  }
+  
+  button{
+    transition: all 0.3s;
+  }
+
+  button:hover{
+    transform: scale(1.08);
+    background-color: #0056b3;
+  }

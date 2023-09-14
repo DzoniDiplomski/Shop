@@ -19,6 +19,7 @@ body {
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
+    text-align: center;
 }
 
 .title {
@@ -40,4 +41,13 @@ body {
 .mat-button:hover {
     background-color: #0056b3;
     transform: scale(1.05); /* Add a scale-up effect on hover */
+}
+
+.layout{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+a{
+    text-decoration: none;
 }

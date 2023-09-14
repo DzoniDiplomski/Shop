@@ -17,6 +17,7 @@ import { AllRequisitionsComponent } from './components/all-requisitions/all-requ
 import { RequisitionDetailComponent } from './components/requisition-detail/requisition-detail.component';
 import { AllAcquisitionsComponent } from './components/all-acquisitions/all-acquisitions.component';
 import { AcquisitionDetailsComponent } from './components/acquisition-details/acquisition-details.component';
+import { CreateCalculationComponent } from './components/create-calculation/create-calculation.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
@@ -84,6 +85,11 @@ const routes: Routes = [
   {
     path: 'acquisition/:acquisitionName',
     component: AcquisitionDetailsComponent,
+    canActivate: [ManagerGuard],
+  },
+  {
+    path: 'createCalculation',
+    component: CreateCalculationComponent,
     canActivate: [ManagerGuard],
   },
 ];

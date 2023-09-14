@@ -1,24 +1,52 @@
-<div>
-    <h2>Create Calculation</h2>
+<div class="container">
+    <mat-card class="mat-elevation-z3">
+    <h2>Kreiraj Kalkulaciju</h2>
+    <div class="search-form">
+        <input type="text" [(ngModel)]="searchQuery" placeholder="Pronađi proizvod">
+        <button type="button" (click)="searchProducts()">Pretraži</button>
+    </div>
+
+    <div class="search-results">
+        <ul>
+            <li *ngFor="let product of searchResults" (click)="selectProduct(product)">
+                {{ product.naz }} (Cena: {{ product.cena }})
+            </li>
+        </ul>
+    </div>
+
     <form (ngSubmit)="createCalculation()">
-      <div *ngFor="let item of calculation.items; let i = index">
-        <!-- Input fields for CalculationProductDTO properties -->
-        <input [(ngModel)]="item.sif" placeholder="Product Code">
-        <input [(ngModel)]="item.neto" placeholder="Neto Price">
-        <input [(ngModel)]="item.margin" placeholder="Margin">
-        <input [(ngModel)]="item.quantity" placeholder="Quantity">
-        <input [(ngModel)]="item.pdv" placeholder="PDV">
-        <button type="button" (click)="addProduct()">Add Product</button>
-      </div>
-      <button type="submit">Create Calculation</button>
+        <div class="calculation-item">
+            <label>Šifra</label>
+            <input [(ngModel)]="newProduct.sif" placeholder="Product Code" name="sif">
+            
+            <label>Neto cena</label>
+            <input [(ngModel)]="newProduct.neto" placeholder="Neto Price" name="neto" (keyup)="netoPriceKeyUp($event)">
+            
+            <label>Marža</label>
+            <input [(ngModel)]="newProduct.margin" placeholder="Margin" disabled name="margin">
+            
+            <label>Količina</label>
+            <input [(ngModel)]="newProduct.quantity" placeholder="Quantity" name="quantity">
+            
+            <label>PDV</label>
+            <select [(ngModel)]="newProduct.pdv" required name="pdv" (change)="onPdvChange($event)">
+                <option value="10">10</option>
+                <option value="20">20</option>
+            </select>
+            
+            <button type="button" (click)="addProduct()">Dodaj proizvod</button>
+        </div>
+      
+        <button type="submit">Kreiraj kalkulaciju</button>
     </form>
 
     <div class="added-items">
-        <h3>Added Items:</h3>
+        <h3>Dodati artikli:</h3>
         <ul>
-          <li *ngFor="let item of calculation.items">
-            Product Code: {{ item.sif }}, Neto Price: {{ item.neto }}, Margin: {{ item.margin }}, Quantity: {{ item.quantity }}, PDV: {{ item.pdv }}
-          </li>
+            <li *ngFor="let item of calculation.items">
+                Šifra: {{ item.sif }}, Neto cena: {{ item.neto }}, Marža: {{ item.margin }}, Količina: {{ item.quantity }}, PDV: {{ item.pdv }}
+            </li>
         </ul>
-      </div>
-  </div>  
+    </div>
+</mat-card>
+</div>

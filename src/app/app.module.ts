@@ -28,6 +28,7 @@ import { RequisitionDetailComponent } from './components/requisition-detail/requ
 import { AllAcquisitionsComponent } from './components/all-acquisitions/all-acquisitions.component';
 import { AcquisitionDetailsComponent } from './components/acquisition-details/acquisition-details.component';
 import { CreateCalculationComponent } from './components/create-calculation/create-calculation.component';
+import { MatOptionModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { CreateCalculationComponent } from './components/create-calculation/crea
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatOptionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

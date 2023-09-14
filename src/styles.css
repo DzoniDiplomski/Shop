@@ -2,3 +2,23 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.container{
+    padding: 20px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+button{
+    color: white !important;
+    transition: all 0.3s !important;
+    background-color: #007bff !important;
+  }
+
+  button:hover{
+    transform: scale(1.08) !important;
+    background-color: #0056b3 !important;
+  }
+
+  

@@ -43,4 +43,13 @@
   li {
     margin-bottom: 5px;
   }
+
+  button{
+    transition: all 0.3s;
+  }
+
+  button:hover{
+    transform: scale(1.08);
+    background-color: #0056b3;
+  }
   

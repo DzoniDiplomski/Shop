@@ -33,6 +33,8 @@ export class AuthGuard implements CanActivate {
       switch (this.authService.getUserRole()) {
         case 'KASIR':
           return this.router.parseUrl('/cashierHome');
+        case 'MENADZER':
+          return this.router.parseUrl('/managerHome');
         default:
           return this.router.parseUrl('/login');
       }
