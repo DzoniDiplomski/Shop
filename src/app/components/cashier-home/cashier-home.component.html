@@ -1,5 +1,4 @@
 <div class="container">
-<div class="page-container">
     <div class="search-container">
         <mat-form-field>
             <input matInput placeholder="Pretrazi artikle..." [(ngModel)]="query" (keyup)="searchProducts()">
@@ -23,21 +22,22 @@
     </div>
   
     <div class="receipt-container">
-      <!-- Receipt content -->
-      <h2>Račun</h2>
-      <div *ngFor="let item of receiptItems; let i = index" class="receipt-item">
-        <span>{{ item.naz }} - {{ item.cena }}</span>
-        <input type="number" [(ngModel)]="item.kolicina" (change)="updateReceiptTotal()">
-        <button class="remove-item-button" (click)="removeItemFromReceipt(i)">✕</button>
-      </div>
-      <div class="receipt-total">
-        Suma: {{ receiptTotal }}
-      </div>
-      <div class="ein-input-container">
-        <label for="ein-input">PIB:</label>
-        <input type="number" id="ein-input" [(ngModel)]="pib" name="ein-input">
-      </div>
-      <button mat-button class="create-receipt-button" (click)="createReceipt()"> <span class="icon" [@moveIcon]="iconState"  (@moveIcon.done)="resetIconState()" *ngIf="!isAnimationInProgress">🧾</span> Fiskalizuj račun</button>
+      <mat-card>
+        <h2>Fiskalni račun</h2>
+        <div *ngFor="let item of receiptItems; let i = index" class="receipt-item">
+          <span>{{ item.naz }} - {{ item.cena }}</span>
+          <input type="number" [(ngModel)]="item.kolicina" (change)="updateReceiptTotal()">
+          <button class="remove-item-button" (click)="removeItemFromReceipt(i)">✕</button>
+        </div>
+        <div class="receipt-total">
+          Suma: {{ receiptTotal | number : '1.2-2' }} 
+        </div>
+        <div class="ein-input-container">
+          <label for="ein-input">PIB </label>
+          <input type="number" id="ein-input" [(ngModel)]="pib" name="ein-input">
+        </div>
+        <button mat-button class="create-receipt-button" (click)="createReceipt()"> <span class="icon" [@moveIcon]="iconState"  (@moveIcon.done)="resetIconState()" *ngIf="!isAnimationInProgress">🧾</span> Fiskalizuj račun</button>
+      </mat-card>  
     </div>
 
 
@@ -52,7 +52,5 @@
         <div class="daily-market-counter">
             Dnevni pazar: {{ dailyMarket }}
           </div>
-        <!-- Add more buttons for other navigation options -->
       </mat-toolbar>
-  </div>
 </div>

@@ -12,15 +12,8 @@
         </li>
       </ul>
     </div>
-    <div class="price-stats-display" *ngIf="selectedProduct">
-      <h3>Statistika za {{ selectedProduct.naz }}</h3>
-      <ul>
-        <li *ngFor="let stat of priceStats">
-          Cena: {{ stat.price }} -
-          Početak važenja: {{ stat.startDate | date:'shortDate' }} -
-          Kraj važenja: {{ stat.endDate | date:'shortDate' }}
-        </li>
-      </ul>
-    </div>
   </div>
+  <div id="divChart">
+    <canvas id="myChart"></canvas>
+</div>
 </div>

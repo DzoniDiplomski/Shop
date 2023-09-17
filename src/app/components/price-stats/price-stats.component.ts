@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/service/product/product.service';
+import { Chart, registerables } from 'chart.js';
+import * as moment from 'moment';
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-price-stats',
@@ -16,7 +19,50 @@ export class PriceStatsComponent implements OnInit {
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
+  buildChart(chartData: any) {
+    var labelsData = []
+    var priceData = []
+    for(let i = chartData.length - 1; i >= 0; i--) {
+      labelsData.push(chartData[i].startDate)
+      priceData.push(chartData[i].price)
+    }
+
+    var myChart = new Chart("myChart", {
+      type: 'line',
+      data: {
+          labels: labelsData,
+          datasets: [{
+              label: 'Cena proizvoda',
+              data: priceData,
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              },
+              x: {
+                time: {
+                  displayFormats: {
+                    'millisecond': 'MMM DD',
+                    'second': 'MMM DD',
+                    'minute': 'MMM DD',
+                    'hour': 'MMM DD',
+                    'day': 'MMM DD',
+                    'week': 'MMM DD',
+                    'month': 'MMM DD',
+                    'quarter': 'MMM DD',
+                    'year': 'MMM DD',
+                  }
+                }
+              }
+          }
+      }
+  });
+  }
 
   searchProducts() {
     this.productService.searchProducts(this.searchQuery).subscribe(
@@ -29,7 +75,7 @@ export class PriceStatsComponent implements OnInit {
     this.selectedProduct = product;
     this.productService.retreivePriceStats(product.sif).subscribe(
       (data) => {
-        this.priceStats = data;
+        this.buildChart(data);
       },
       (error) => console.error('Error retrieving price stats', error)
     );
