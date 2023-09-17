@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ProductService } from 'src/app/service/product/product.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class UpdatePriceComponent implements OnInit {
   updatedStartDate: string = '';
   updatedEndDate: string = '';
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private toastr: ToastrService) {}
 
   searchProducts(): void {
     this.productService.searchProducts(this.searchQuery).subscribe((data) => {
@@ -40,7 +41,7 @@ export class UpdatePriceComponent implements OnInit {
 
       this.productService.updateProductPrice(updatedProduct).subscribe(
         () => {
-          alert('Price updated successfully');
+          this.toastr.success('Price updated successfully', 'Success')
         },
         (error) => {
           console.error('Error updating price', error);

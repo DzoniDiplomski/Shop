@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { RequisitionService } from 'src/app/service/requisition/requisition.service';
 
@@ -36,7 +37,7 @@ export class CreateRequisitionComponent implements OnInit {
     this.requisition.products = this.products;
     this.requisitionService.createRequisition(this.requisition).subscribe(
       () => {
-        alert('Success!');
+        this.toastr.success('Successfully created a requisition', 'Success')
         this.resetProductInput;
         this.products = [];
       },
@@ -48,7 +49,8 @@ export class CreateRequisitionComponent implements OnInit {
 
   constructor(
     private requisitionService: RequisitionService,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {}

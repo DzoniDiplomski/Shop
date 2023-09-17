@@ -29,6 +29,7 @@ import { AllAcquisitionsComponent } from './components/all-acquisitions/all-acqu
 import { AcquisitionDetailsComponent } from './components/acquisition-details/acquisition-details.component';
 import { CreateCalculationComponent } from './components/create-calculation/create-calculation.component';
 import { MatOptionModule } from '@angular/material/core';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { MatOptionModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
     MatOptionModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

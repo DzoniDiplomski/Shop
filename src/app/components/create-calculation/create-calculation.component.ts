@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CalculationService } from 'src/app/service/calculation/calculation.service';
 import { ProductService } from 'src/app/service/product/product.service';
 
@@ -25,7 +26,8 @@ export class CreateCalculationComponent implements OnInit {
 
   constructor(
     private calculationService: CalculationService,
-    private productService: ProductService
+    private productService: ProductService,
+    private toastr: ToastrService
   ) {}
 
   searchProducts(): void {
@@ -92,7 +94,7 @@ export class CreateCalculationComponent implements OnInit {
   createCalculation(): void {
     this.calculationService.createCalculation(this.calculation).subscribe(
       () => {
-        alert('Successfully created a calculation');
+        this.toastr.success('Successfully created a calculation', 'Success')
       },
       (error) => {
         console.error('Could not create a calculation', error);
